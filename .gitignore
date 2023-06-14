@@ -1,6 +1,11 @@
-*.idea
-*.DS_Store
-*.vscode
 *target
 *build
 *dist
+
+### IntelliJ IDEA ###
+*.idea
+*.iws
+*.iml
+*.ipr
+*.DS_Store
+*.mvn
