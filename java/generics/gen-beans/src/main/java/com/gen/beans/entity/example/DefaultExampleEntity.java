@@ -1,7 +1,10 @@
 package com.gen.beans.entity.example;
 
-public class DefaultExampleEntity {
-    private int id;
+import com.gen.beans.entity.BaseEntity;
+import lombok.Data;
+
+@Data
+public class DefaultExampleEntity extends BaseEntity {
     private String userId;
     @Override
     public String toString(){

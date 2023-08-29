@@ -1,6 +1,7 @@
 package com.gen.app;
 
 import com.gen.core.service.ExampleService;
+import com.gen.core.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,10 +19,19 @@ public class GenAppTest {
     @Autowired
     private ExampleService es;
 
+    @Autowired
+    private UserService us;
+
     @Test
     public void testRun() {
         log.info("================= 测试代码 start===============");
         System.out.printf("调用:%s %n", es.getById(1));
+
+        System.out.printf("调用:%s %n", es.getByUserId("0x1"));
+
+        System.out.printf("调用:%s %n", us.getInfo("0x1"));
+
+
         log.info("================= 测试代码 end===============");
     }
 }

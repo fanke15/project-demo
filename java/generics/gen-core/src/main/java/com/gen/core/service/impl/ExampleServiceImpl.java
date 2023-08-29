@@ -10,13 +10,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ExampleServiceImpl extends BaseServiceImpl<DefaultExampleEntity> implements ExampleService {
-    private final ExampleMapper daoObj;
-
-
     @Autowired
-    public ExampleServiceImpl(ExampleMapper dao) {
-        this.daoObj = dao;
-    }
+    private  ExampleMapper daoObj;
+
 
     @Override
     public ExampleMapper getDao() {
@@ -30,10 +26,12 @@ public class ExampleServiceImpl extends BaseServiceImpl<DefaultExampleEntity> im
 
     @Override
     public DefaultExampleEntity getById(int id) {
-        return getDao().getById(getTableName(),id);
+        return exampleMapper.getById(getTableName(),id);
+        // return getDao().getById(getTableName(),id);
     }
     @Override
-    public DefaultExampleEntity getByUserId(int userId) {
-        return getDao().getByUserId(userId);
+    public DefaultExampleEntity getByUserId(String userId) {
+        return exampleMapper.getByUserId(getTableName(),userId);
+        // return getDao().getByUserId(userId);
     }
 }

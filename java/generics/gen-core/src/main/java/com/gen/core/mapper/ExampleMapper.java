@@ -8,6 +8,4 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface ExampleMapper extends BaseMapper<DefaultExampleEntity>{
-    @Select("select * from "+ TableConstants.ExampleTableName +" where user_id = #{userId}")
-    DefaultExampleEntity getByUserId( @Param("userId") int userId);
 }
