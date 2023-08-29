@@ -1,18 +1,17 @@
-package service.impl;
+package com.gen.core.service.impl;
 
-import constants.TableConstants;
-import entity.example.DefaultExampleEntity;
-import mapper.ExampleMapper;
+import com.gen.beans.entity.example.DefaultExampleEntity;
+import com.gen.common.constants.TableConstants;
+import com.gen.core.mapper.ExampleMapper;
+import com.gen.core.service.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import service.ExampleService;
 
 
 @Service
-@RequestMapping(TableConstants.ExampleTableName)
 public class ExampleServiceImpl extends BaseServiceImpl<DefaultExampleEntity> implements ExampleService {
     private final ExampleMapper daoObj;
+
 
     @Autowired
     public ExampleServiceImpl(ExampleMapper dao) {
@@ -31,7 +30,7 @@ public class ExampleServiceImpl extends BaseServiceImpl<DefaultExampleEntity> im
 
     @Override
     public DefaultExampleEntity getById(int id) {
-        return getDao().getById(id);
+        return getDao().getById(getTableName(),id);
     }
     @Override
     public DefaultExampleEntity getByUserId(int userId) {

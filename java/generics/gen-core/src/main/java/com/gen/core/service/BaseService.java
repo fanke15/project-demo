@@ -1,4 +1,4 @@
-package service;
+package com.gen.core.service;
 
 import java.util.List;
 

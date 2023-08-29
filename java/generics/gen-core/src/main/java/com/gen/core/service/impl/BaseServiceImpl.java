@@ -1,12 +1,13 @@
-package service.impl;
+package com.gen.core.service.impl;
 
 
-import mapper.BaseMapper;
-import mapper.ExampleMapper;
-import service.BaseService;
+import com.gen.core.mapper.BaseMapper;
+import com.gen.core.service.BaseService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
     public abstract BaseMapper<T> getDao();

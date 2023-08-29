@@ -1,4 +1,4 @@
-package entity.example;
+package com.gen.beans.entity.example;
 
 public class DefaultExampleEntity {
     private int id;
