@@ -3,7 +3,6 @@ package com.gen.app;
 import com.gen.core.service.ExampleService;
 import com.gen.core.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
