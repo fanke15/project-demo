@@ -9,3 +9,4 @@
 *.ipr
 *.DS_Store
 *.mvn
+*node_modules

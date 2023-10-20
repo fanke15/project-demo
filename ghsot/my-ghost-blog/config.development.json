@@ -1,0 +1,30 @@
+{
+  "url": "http://localhost:2368/",
+  "server": {
+    "port": 2368,
+    "host": "127.0.0.1"
+  },
+  "database": {
+    "client": "mysql",
+    "connection": {
+      "host": "127.0.0.1",
+      "port": 3306,
+      "user": "root",
+      "password": "",
+      "database": "ghost"
+    }
+  },
+  "mail": {
+    "transport": "Direct"
+  },
+  "logging": {
+    "transports": [
+      "file",
+      "stdout"
+    ]
+  },
+  "process": "local",
+  "paths": {
+    "contentPath": "/Users/fanke/Desktop/dev/personal/project-demo/ghsot/my-ghost-blog/content"
+  }
+}
