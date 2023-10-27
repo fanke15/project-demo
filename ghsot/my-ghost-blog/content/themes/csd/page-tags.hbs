@@ -1,0 +1,136 @@
+{{!< default}}
+<style>
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tag-item {
+        width: calc(25% - 20px);
+        height: 200px;
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+
+    .tag-item .tag-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: {{randomColor}};
+        margin-bottom: 10px;
+    }
+
+    .tag-image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* 添加其他样式，如宽度和高度限制 */
+    }
+
+
+    .tag-image.tag-color {
+        background-color: {{randomColor}};
+    }
+
+    .tag-item .tag-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .tag-item .tag-description {
+        color: #888;
+    }
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var tagImages = document.querySelectorAll('.tag-image');
+        tagImages.forEach(function(tagImage) {
+            tagImage.style.backgroundColor = getRandomColor();
+        });
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        var tagDescriptions = document.querySelectorAll('.tag-description');
+        tagDescriptions.forEach(function(description) {
+            if (description.innerHTML.trim() === '') {
+                var defaultDescription = description.getAttribute('data-default');
+                if (defaultDescription) {
+                    description.innerHTML = defaultDescription;
+                }
+            }
+        });
+    });
+</script>
+
+<header {{#if @site.cover_image}}style="background-image: url({{@site.cover_image}})"{{/if}} class="tag-header">
+    <div class="tag-header-container">
+        <div class="tag-nav">
+            <a href="{{@site.url}}">HOME</a>
+        </div>
+        <div class="tag-content">
+            <h1 class="tag-title">标签云</h1>
+        </div>
+        <div class="tag-post-num">
+            {{#get "tags" limit="all"}}
+                <i class="fa fa-signal"></i><span>共 <span class="num">{{tags.length}}</span> 个标签</span>
+            {{/get}}
+        </div>
+    </div>
+</header>
+<div class="site-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 tags-container">
+                <ul class="tag-list">
+                    {{#get "tags" limit="all"}}
+                        {{#foreach tags}}
+                            <li class="tag-item">
+                                <a href="{{url}}">
+                                    {{#if feature_image}}
+                                        <div class="tag-image" style="background-image: url({{feature_image}})"></div>
+                                    {{else}}
+                                        <div class="tag-image tag-color"></div>
+                                    {{/if}}
+                                </a>
+
+                                <a href="{{url}}">
+                                    <div class="tag-name">{{name}}</div>
+                                </a>
+
+                                <a href="{{url}}">
+                                    {{#if description}}
+                                        <div class="tag-description">{{description}}</div>
+                                    {{else}}
+                                        <div class="tag-description">标签描述走丢了~</div>
+                                    {{/if}}
+                                </a>
+                            </li>
+                        {{/foreach}}
+                    {{/get}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer this}}
+{{> copyright this}}

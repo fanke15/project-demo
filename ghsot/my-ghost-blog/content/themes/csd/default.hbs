@@ -1,30 +1,24 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<title>{{meta_title}}</title>
-	<link rel="stylesheet" href="{{asset 'css/style.css'}}">
-    <!-- 引入 layui.css -->
-    <link href="//unpkg.com/layui@2.8.18-rc.1/dist/css/layui.css" rel="stylesheet">
-
-	{{ghost_head}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meta_title}}</title>
+    <link rel="stylesheet" href="{{asset 'css/default.min.css'}}">
+    <!-- 管理后台自定义head -->
+    {{ghost_head}}
 </head>
-
 <body class="{{body_class}}">
 {{{body}}}
 <script src="{{asset 'js/index.min.js'}}"></script>
-<!-- 引入 layui.js -->
-<script src="//unpkg.com/layui@2.8.18-rc.1/dist/layui.js"></script>
-
 {{#is 'post'}}
-	<script src="{{asset 'js/post.min.js'}}"></script>
+    <script src="{{asset 'js/post.js'}}"></script>
 {{/is}}
+{{#if @page.show_title_and_feature_image}}
+{{/if}}
+<script>
 
-
+</script>
 {{ghost_foot}}
 </body>
 </html>
