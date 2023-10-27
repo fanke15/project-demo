@@ -1,3 +1,5 @@
 routes:
   /tags/:
     template: page-tags
+  /discuss/:
+    template: page-discuss

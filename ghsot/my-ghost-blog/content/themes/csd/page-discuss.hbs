@@ -1,0 +1,19 @@
+{{!< default}}
+
+<header {{#if @site.cover_image}}style="background-image: url({{@site.cover_image}})"{{/if}} class="tag-header">
+    <div class="tag-header-container">
+        <div class="tag-nav">
+            <a href="{{@site.url}}">HOME</a>
+        </div>
+        <div class="tag-content">
+            <h1 class="tag-title">留言板</h1>
+        </div>
+    </div>
+</header>
+
+
+<div class="site-content">
+    <div class="container">
+        <div id="tcomment"></div>
+    </div>
+</div>
