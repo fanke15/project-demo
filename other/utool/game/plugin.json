@@ -1,0 +1,11 @@
+{
+  "main": "index.html",
+  "logo": "images/logo.png",
+  "features": [
+    {
+      "code": "game",
+      "explain": "game",
+      "cmds":["game"]
+    }
+  ]
+}
